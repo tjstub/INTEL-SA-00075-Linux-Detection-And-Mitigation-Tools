@@ -45,13 +45,18 @@ Step 4: If a firmware update is not available from your OEM, mitigations are pro
 Linux users use the INTEL-SA-00075-Unprovisioning-Tool on this github page.<br />
 For assistance in implementing the mitigations steps provided in this document, please contact Intel Customer Support at http://www.intel.com/content/www/us/en/support/contact-support.html#@23; from the Technologies section, select Intel® Active Management Technology (Intel® AMT).<br />
 
-
 ## Build instructions for the INTEL-SA-00075-Discovery-Tool and INTEL-SA-00075-Unprovisioning-Tool
 
-make clean; make<br />
-sudo ./INTEL-SA-00075-Discovery-Tool or sudo ./INTEL-SA-00075-Discovery-Tool -d /dev/mei<br />
-sudo ./INTEL-SA-00075-Unprovisioning-Tool or sudo ./INTEL-SA-00075-Unprovisioning-Tool -d /dev/mei<br />
-<br />
+This builds with CMake and Make.
+
+Run the following:
+
+```sh
+mkdir build && cd build && cmake .. && make
+sudo ./INTEL-SA-00075-Discovery-Tool or sudo ./INTEL-SA-00075-Discovery-Tool -d /dev/mei
+sudo ./INTEL-SA-00075-Unprovisioning-Tool or sudo ./INTEL-SA-00075-Unprovisioning-Tool -d /dev/mei
+```
+
 NOTE: <br />
 If mei device /dev/mei0 is not found, Open Terminal and list available devices with ls /dev/mei*<br />
 This should give the proper device node /dev/mei# ; then re-run the application with correct node<br />
